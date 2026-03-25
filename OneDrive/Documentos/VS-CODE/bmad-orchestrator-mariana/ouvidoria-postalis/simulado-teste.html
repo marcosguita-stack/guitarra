@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Prático | Simulado Ouvidoria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #333; line-height: 1.8; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header { background: white; border-radius: 15px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); border-top: 5px solid #4facfe; }
+        .header h1 { font-size: 2.5em; color: #4facfe; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; color: #666; }
+        .progress-bar { width: 100%; height: 8px; background: #e0e0e0; border-radius: 10px; margin-top: 20px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #4facfe, #00f2fe); width: 20%; transition: width 0.3s ease; }
+        .case-container { background: white; border-radius: 15px; padding: 40px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .case-number { display: inline-block; background: #4facfe; color: white; padding: 8px 16px; border-radius: 50px; font-weight: bold; margin-bottom: 15px; font-size: 0.9em; }
+        .case-title { font-size: 1.8em; color: #4facfe; margin-bottom: 15px; }
+        .case-scenario { background: #e0f7ff; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4facfe; }
+        .case-scenario p { color: #555; margin-bottom: 10px; }
+        .case-scenario strong { color: #00a8e8; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-weight: 700; color: #4facfe; margin-bottom: 10px; font-size: 1.05em; }
+        textarea { width: 100%; min-height: 120px; padding: 15px; border: 2px solid #d0f0ff; border-radius: 10px; font-family: 'Segoe UI', sans-serif; font-size: 1em; color: #555; resize: vertical; transition: border-color 0.3s ease; }
+        textarea:focus { outline: none; border-color: #4facfe; background: #f9fbff; }
+        .hint { font-size: 0.9em; color: #888; margin-top: 8px; font-style: italic; }
+        .buttons { display: flex; gap: 15px; justify-content: center; margin-top: 50px; flex-wrap: wrap; }
+        .btn { padding: 15px 40px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1.1em; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .btn-finish { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; }
+        .btn-finish:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4); }
+        .btn-home { background: white; color: #4facfe; border: 2px solid #4facfe; }
+        .btn-home:hover { background: #e0f7ff; }
+        .warning { background: #fff3cd; border-left: 4px solid #ff9800; padding: 15px; margin-bottom: 30px; border-radius: 5px; color: #856404; font-weight: 500; }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding: 15px 0; font-size: 0.95em; color: #999; margin-bottom: 20px; }
+        .breadcrumb a { color: #4facfe; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="landing-page.html">🏠 Home</a> / <a href="simulado-inicio.html">🎬 Simulado</a> / <strong>Teste</strong>
+        </div>
+
+        <div class="header">
+            <h1>🎬 Teste Prático</h1>
+            <p class="subtitle">Responda como se fosse a prova REAL</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="warning">
+            ⏱️ <strong>Tempo:</strong> Responda de forma estruturada e clara. Não há limite de tempo, mas imagine que tem 2-3 horas para resolver todos os casos.
+        </div>
+
+        <form id="testForm">
+            <!-- CASO 1 -->
+            <div class="case-container">
+                <span class="case-number">CASO 1/5</span>
+                <h2 class="case-title">💰 Meu Saldo Desapareceu!</h2>
+                <div class="case-scenario">
+                    <p><strong>Cenário:</strong> Um cliente entra furioso na ouvidoria reclamando:</p>
+                    <p>"Meu saldo era R$ 150 mil em janeiro. Agora é R$ 145 mil. Vocês roubaram meu dinheiro! Quero saber onde foi!"</p>
+                    <p><strong>Contexto técnico (você sabe internamente):</strong> A rentabilidade do fundo foi negativa (-3%) naquele mês porque o mercado caiu.</p>
+                </div>
+                <div class="form-group">
+                    <label>Como você responderia? (estruture sua resposta)</label>
+                    <textarea name="caso1" placeholder="Estruture: 1) Acolhimento do cliente 2) Investigação/Explicação 3) Solução/Encaminhamento 4) Prazo de resposta"></textarea>
+                    <div class="hint">Dica: Comece acolhendo o sentimento dele, depois explique com transparência, mostre os cálculos, cite a legislação relevante.</div>
+                </div>
+            </div>
+
+            <!-- CASO 2 -->
+            <div class="case-container">
+                <span class="case-number">CASO 2/5</span>
+                <h2 class="case-title">🔐 Vocês Violaram Minha Privacidade!</h2>
+                <div class="case-scenario">
+                    <p><strong>Cenário:</strong> Uma cliente vem à ouvidoria dizendo:</p>
+                    <p>"Recebi 5 e-mails com propostas de empréstimo que NUNCA pedi. Vocês vendem meus dados? Quero deletar meus dados AGORA e sair dessa lista!"</p>
+                    <p><strong>Contexto técnico:</strong> Marketing mandou e-mails sem verificar opt-out. Ela está certa em estar preocupada.</p>
+                </div>
+                <div class="form-group">
+                    <label>Como você responderia? (lembre-se: LGPD é prioritária aqui)</label>
+                    <textarea name="caso2" placeholder="Estruture: 1) Acolhimento 2) Reconhecimento da violação 3) Ações imediatas (escalação, opt-out) 4) Prazo LGPD"></textarea>
+                    <div class="hint">Dica: Reconheça o erro, escalone para DPO (Data Protection Officer), tire da lista de marketing IMEDIATAMENTE, responda em até 15 dias (prazo LGPD, não 30).</div>
+                </div>
+            </div>
+
+            <!-- CASO 3 -->
+            <div class="case-container">
+                <span class="case-number">CASO 3/5</span>
+                <h2 class="case-title">⛔ Quero Resgatar e Vocês Não Deixam</h2>
+                <div class="case-scenario">
+                    <p><strong>Cenário:</strong> Um cliente está recebendo benefício (aposentadoria complementar) mas quer resgatar todo o saldo de uma vez.</p>
+                    <p>"Escolhi benefício mas mudei de ideia. Quero meu dinheiro HOJE. Vocês não podem bloquear!"</p>
+                    <p><strong>Contexto técnico:</strong> Uma vez que ele escolheu "benefício", não pode resgatetudo — isso é irreversível por lei. Mas empréstimo consignado é opção.</p>
+                </div>
+                <div class="form-group">
+                    <label>Como você responderia? (imparcialidade + alternativas)</label>
+                    <textarea name="caso3" placeholder="Estruture: 1) Acolhimento 2) Explicação legal 3) Alternativa (empréstimo consignado) 4) Documentação"></textarea>
+                    <div class="hint">Dica: Seja empática MAS firme. Explique que benefício é escolha irreversível conforme legislação previdenciária. Ofereça consignado como alternativa.</div>
+                </div>
+            </div>
+
+            <!-- CASO 4 -->
+            <div class="case-container">
+                <span class="case-number">CASO 4/5</span>
+                <h2 class="case-title">🚨 Denúncia Anônima de Fraude</h2>
+                <div class="case-scenario">
+                    <p><strong>Cenário:</strong> Você recebe uma denúncia ANÔNIMA via ouvidoria:</p>
+                    <p>"Suspeito que há desvio de contribuições na área de Gestão. Um funcionário está desviando dinheiro de clientes."</p>
+                    <p><strong>Contexto técnico:</strong> É anônimo. Poderia ser verdade ou difamação. Você precisa investigar confidencialmente.</p>
+                </div>
+                <div class="form-group">
+                    <label>Como você procederia? (sigilo + integridade)</label>
+                    <textarea name="caso4" placeholder="Estruture: 1) Acolhimento da denúncia 2) Escalações (Compliance, Auditoria) 3) Processo investigativo 4) Confidencialidade"></textarea>
+                    <div class="hint">Dica: Receba anônimo com valor, escalone para Compliance + Auditoria Interna, NÃO comunique ao denunciado até investigação, mantenha sigilo.</div>
+                </div>
+            </div>
+
+            <!-- CASO 5 -->
+            <div class="case-container">
+                <span class="case-number">CASO 5/5</span>
+                <h2 class="case-title">⏳ Vocês Demoraram 3 Meses</h2>
+                <div class="case-scenario">
+                    <p><strong>Cenário:</strong> Um cliente reclamou sobre seu saldo em 01/01. Você respondeu apenas em 31/03 (90 dias depois).</p>
+                    <p>"O SLA de vocês é 30 dias. Vocês falharam. Quero compensação!"</p>
+                    <p><strong>Contexto técnico:</strong> Realmente houve falha. Houve gargalo na triagem porque era processo manual. Precisa reconhecer + oferecer algo.</p>
+                </div>
+                <div class="form-group">
+                    <label>Como você responderia? (reconhecer erro + solução)</label>
+                    <textarea name="caso5" placeholder="Estruture: 1) Reconhecimento da falha 2) Desculpas genuínas 3) Compensação 4) Melhoria de processo"></textarea>
+                    <div class="hint">Dica: Reconheça SEM negação. Ofereça compensação proporcional (abatimento de taxa, crédito extra, etc). Implemente melhoria real.</div>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="btn btn-finish">✅ Finalizar Teste & Ver Gabarito</button>
+                <a href="simulado-inicio.html" class="btn btn-home">← Voltar</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Atualizar barra de progresso ao digitar
+        const textareas = document.querySelectorAll('textarea');
+        const progressFill = document.getElementById('progressFill');
+
+        textareas.forEach((textarea, index) => {
+            textarea.addEventListener('input', () => {
+                const filledCount = Array.from(textareas).filter(ta => ta.value.trim().length > 0).length;
+                const progress = (filledCount / textareas.length) * 100;
+                progressFill.style.width = progress + '%';
+            });
+        });
+
+        // Ao submeter o formulário
+        document.getElementById('testForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Coletar respostas
+            const respostas = {
+                caso1: document.querySelector('[name="caso1"]').value,
+                caso2: document.querySelector('[name="caso2"]').value,
+                caso3: document.querySelector('[name="caso3"]').value,
+                caso4: document.querySelector('[name="caso4"]').value,
+                caso5: document.querySelector('[name="caso5"]').value
+            };
+
+            // Verificar se todas foram preenchidas
+            const todasPreenchidas = Object.values(respostas).every(r => r.trim().length > 0);
+
+            if (!todasPreenchidas) {
+                alert('⚠️ Por favor, responda todos os 5 casos antes de finalizar.');
+                return;
+            }
+
+            // Salvar em localStorage
+            localStorage.setItem('respostasTesteSim', JSON.stringify(respostas));
+            localStorage.setItem('dataTesteSim', new Date().toLocaleString('pt-BR'));
+
+            // Redirecionar para gabarito
+            window.location.href = 'simulado-gabarito.html';
+        });
+    </script>
+</body>
+</html>

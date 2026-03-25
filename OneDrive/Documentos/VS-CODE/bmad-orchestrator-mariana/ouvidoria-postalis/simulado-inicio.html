@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado Prático | Teste Ouvidoria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #333; line-height: 1.8; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .container { max-width: 700px; background: white; border-radius: 20px; padding: 60px 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); text-align: center; }
+        h1 { font-size: 2.8em; color: #4facfe; margin-bottom: 20px; }
+        .subtitle { font-size: 1.3em; color: #666; margin-bottom: 40px; }
+        .info-box { background: #e0f7ff; border-left: 4px solid #4facfe; padding: 25px; margin: 30px 0; border-radius: 5px; text-align: left; }
+        .info-box h3 { color: #4facfe; margin-bottom: 15px; font-size: 1.2em; }
+        .info-box ul { list-style: none; padding-left: 0; }
+        .info-box li { padding: 8px 0; color: #555; border-bottom: 1px solid #d0f0ff; }
+        .info-box li:last-child { border-bottom: none; }
+        .info-box li strong { color: #00a8e8; }
+        .timer { font-size: 1.1em; margin: 30px 0; padding: 20px; background: #fff9e6; border-radius: 10px; color: #ff9800; font-weight: bold; }
+        .buttons { display: flex; gap: 15px; margin-top: 40px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 15px 40px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1.1em; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .btn-start { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; }
+        .btn-start:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4); }
+        .btn-home { background: white; color: #4facfe; border: 2px solid #4facfe; }
+        .btn-home:hover { background: #e0f7ff; }
+        .warning { background: #fff3cd; border-left: 4px solid #ff9800; padding: 20px; margin: 20px 0; border-radius: 5px; color: #856404; font-weight: 500; }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding: 15px 0; font-size: 0.95em; color: #999; margin-bottom: 20px; }
+        .breadcrumb a { color: #4facfe; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="landing-page.html">🏠 Home</a> / <a href="landing-page.html#pilares">📚 Pilares</a> / <strong>🎬 Simulado</strong>
+        </div>
+
+        <h1>🎬 Teste Prático</h1>
+        <p class="subtitle">Respondendo em Tempo Real</p>
+
+        <div class="timer">
+            ⏱️ Tempo estimado: <strong>2-3 horas</strong>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 Como Funciona</h3>
+            <ul>
+                <li><strong>5 casos reais</strong> de reclamação na Ouvidoria</li>
+                <li><strong>Você responde</strong> como se fosse Luciana no teste</li>
+                <li><strong>Responda em português claro</strong> e estruturado</li>
+                <li><strong>Ao final</strong>, você recebe o gabarito comentado + sua pontuação</li>
+                <li><strong>Pode fazer várias vezes</strong> para treinar</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>⭐ Dicas Ouro</h3>
+            <ul>
+                <li><strong>Estrutura:</strong> Acolha o cliente → Investigue → Explique → Resolva</li>
+                <li><strong>Legislação:</strong> LGPD, CDC, direitos previdenciários na resposta</li>
+                <li><strong>Empatia + Firmeza:</strong> Valide sentimentos MAS mantenha imparcialidade</li>
+                <li><strong>Prazo:</strong> Sempre mencione quantos dias você vai responder (LGPD: 15 dias)</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            💡 <strong>Dica:</strong> Quando terminar o teste e receber o gabarito, volte a este link para fazer novamente. Cada tentativa melhora sua confiança para o teste de verdade!
+        </div>
+
+        <div class="buttons">
+            <a href="simulado-teste.html" class="btn btn-start">🚀 Começar Teste</a>
+            <a href="landing-page.html" class="btn btn-home">← Voltar à Home</a>
+        </div>
+    </div>
+</body>
+</html>

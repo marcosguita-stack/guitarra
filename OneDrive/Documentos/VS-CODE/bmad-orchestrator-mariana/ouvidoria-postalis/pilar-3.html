@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilar 3: Simulado | Curso Ouvidoria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI'; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #333; line-height: 1.8; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .header { background: white; border-radius: 15px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); border-top: 5px solid #4facfe; }
+        .header h1 { font-size: 2.5em; color: #4facfe; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; color: #666; margin-bottom: 20px; }
+        .header .meta { display: flex; gap: 30px; font-size: 1em; color: #888; flex-wrap: wrap; }
+        .content { background: white; border-radius: 15px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .content h2 { font-size: 1.8em; color: #4facfe; margin-top: 40px; margin-bottom: 20px; border-bottom: 3px solid #4facfe; padding-bottom: 10px; }
+        .content h2:first-of-type { margin-top: 0; }
+        .content h3 { font-size: 1.3em; color: #00f2fe; margin-top: 30px; margin-bottom: 15px; }
+        .content p { margin-bottom: 15px; color: #555; }
+        .content ul { list-style: none; margin-bottom: 20px; padding-left: 20px; }
+        .content li { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .box { background: #e0f7ff; border-left: 4px solid #4facfe; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .nav-buttons { display: flex; gap: 15px; justify-content: space-between; margin-top: 40px; flex-wrap: wrap; }
+        .btn { padding: 12px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .btn-primary { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4); }
+        .btn-secondary { background: white; color: #4facfe; border: 2px solid #4facfe; }
+        .btn-secondary:hover { background: #e0f7ff; }
+        .print-btn { padding: 8px 15px; font-size: 0.9em; background: #f5f5f5; color: #666; border: 1px solid #ddd; }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding: 15px 0; font-size: 0.95em; color: #999; margin-bottom: 20px; }
+        .breadcrumb a { color: #4facfe; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* WHY SECTION */
+        .why-box { background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 242, 254, 0.05)); border-left: 4px solid #4facfe; padding: 25px; margin-bottom: 30px; border-radius: 8px; }
+        .why-box h3 { color: #4facfe; font-size: 1.2em; margin-bottom: 12px; }
+        .why-box p { color: #555; font-size: 1.05em; line-height: 1.7; }
+
+        /* QUICK ACCESS */
+        .quick-access { background: #f9f9f9; border: 2px dashed #ddd; padding: 20px; border-radius: 10px; margin: 30px 0; text-align: center; }
+        .quick-access a { display: inline-block; background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+        .quick-access a:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(79, 172, 254, 0.3); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="landing-page.html">🏠 Home</a> / <a href="landing-page.html#pilares">📚 Pilares</a> / <strong>🎬 Simulado Prático</strong>
+        </div>
+
+        <div class="header">
+            <h1>🎬 PILAR 3: Simulado Prático</h1>
+            <p class="subtitle">5 casos reais + 5 perguntas de entrevista com gabarito comentado</p>
+
+            <div class="why-box" style="margin-top: 25px; margin-bottom: 0;">
+                <h3>💡 Por que isso importa?</h3>
+                <p>80% da prova são esses 5 casos. Se você domina eles, domina a maioria do teste. Este pilar é PRÁTICA REAL — responda como se fosse no dia.</p>
+            </div>
+            <div class="meta">
+                <div class="meta-item">⏱️ <strong>18 horas</strong> de prática</div>
+                <div class="meta-item">📋 <strong>5 casos</strong> + entrevista</div>
+                <div class="meta-item"><button class="btn print-btn" onclick="window.print()">🖨️ Imprimir/PDF</button></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Os 5 Casos (80% do Teste)</h2>
+
+            <h3>CASO 1: "Meu Saldo Desapareceu!"</h3>
+            <p><strong>Cenário:</strong> Cliente: "Meu saldo era R$ 150 mil em janeiro. Agora é R$ 145 mil. Roubaram meu dinheiro!"</p>
+            <p><strong>Causa Raiz:</strong> Rentabilidade negativa (mercado caiu -3%)</p>
+            <p><strong>Sua Ação:</strong> Investigue, explique rentabilidade, mostre cálculo detalhado, responda em 15 dias</p>
+
+            <h3>CASO 2: "Vocês Violaram Minha Privacidade!"</h3>
+            <p><strong>Cenário:</strong> Cliente recebeu 5 e-mails com propostas de empréstimo. Não autorizou. Quer deletar dados.</p>
+            <p><strong>Causa Raiz:</strong> Marketing não autorizado OU falta de opt-out</p>
+            <p><strong>Sua Ação:</strong> Escalope DPO, saia da lista, responda em ATÉ 10 DIAS (LGPD)</p>
+
+            <h3>CASO 3: "Quero Resgatar e Vocês Não Deixam"</h3>
+            <p><strong>Cenário:</strong> Cliente em gozo de benefício quer resgatetudo. Está bloqueado.</p>
+            <p><strong>Causa Raiz:</strong> Já escolheu benefício. Resgate = irreversível</p>
+            <p><strong>Sua Ação:</strong> Explique legal, ofereça empréstimo consignado como alternativa</p>
+
+            <h3>CASO 4: "Denúncia Anônima de Fraude"</h3>
+            <p><strong>Cenário:</strong> Denunciante anônimo reporta desvio de contribuições.</p>
+            <p><strong>Causa Raiz:</strong> Possível fraude interna</p>
+            <p><strong>Sua Ação:</strong> Receba anônimo, escalope Compliance + Auditoria, investigue confidencialmente</p>
+
+            <h3>CASO 5: "Vocês Demoraram 3 Meses"</h3>
+            <p><strong>Cenário:</strong> Cliente fez reclamação, Postalis respondeu após 90 dias (prazo era 30).</p>
+            <p><strong>Causa Raiz:</strong> Gargalo no processo (fila de triagem manual)</p>
+            <p><strong>Sua Ação:</strong> Reconheça falha, ofereça compensação proporcional, implemente correção</p>
+
+            <div class="box">
+                <strong>💡 Dica:</strong> Esses 5 casos cobrem 80% do que sai em provas. Se você dominar esses, domina a maioria.
+            </div>
+
+            <h2>Simulado Entrevista (5 Perguntas Críticas)</h2>
+
+            <h3>1️⃣ "Você nunca fez ouvidoria. Como sabe fazer isso?"</h3>
+            <p><strong>Resposta Ideal (60s):</strong> "Ouvidoria é 60% RH (escuta, conflito, documentação — tenho 10+ anos) + 40% legislação (estudei 48h). Competências transferíveis."</p>
+
+            <h3>2️⃣ "Qual é o maior desafio em ouvidoria?"</h3>
+            <p><strong>Resposta Ideal (60s):</strong> "Imparcialidade enquanto empatiza. É fácil 'dar razão' pro cliente. Meu dever é VERDADE, não simpatia. Fiz isso em RH diariamente."</p>
+
+            <h3>3️⃣ "Cliente está errado. Como você responde?"</h3>
+            <p><strong>Resposta Ideal (60s):</strong> "Com honestidade + respeito. Explico tecnicamente, ofereço opções, nunca fecho porta — cliente pode recorrer."</p>
+
+            <h3>4️⃣ "Por que sair de RH?"</h3>
+            <p><strong>Resposta Ideal (45s):</strong> "Não é fuga — é upgrade de impacto. RH = colaborador. Ouvidoria = cliente final. Estratégica."</p>
+
+            <h3>5️⃣ "Quanto você acha que recebe?"</h3>
+            <p><strong>Resposta Ideal (30s):</strong> "Confio na proposta de vocês. Importa = oportunidade de aprender, impactar. Dinheiro segue excelência."</p>
+
+            <div class="box">
+                <strong>✅ Scoreboard:</strong><br>
+                90-100: APROVADA | 75-89: BOM | 60-74: MÉDIO | &lt;60: CRÍTICO
+            </div>
+        </div>
+
+        <div class="quick-access">
+            <p style="margin-bottom: 15px; color: #666; font-weight: 500;">🎬 <strong>Comece o Teste Agora!</strong></p>
+            <a href="simulado-teste.html">Fazer Teste Completo</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="landing-page.html" class="btn btn-secondary">← Voltar à Home</a>
+            <a href="pilar-4.html" class="btn btn-primary">Próximo: Pilar 4 →</a>
+        </div>
+    </div>
+</body>
+</html>

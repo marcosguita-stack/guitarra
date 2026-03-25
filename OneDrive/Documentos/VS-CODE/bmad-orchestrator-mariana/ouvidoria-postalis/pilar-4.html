@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilar 4: Narrativa | Curso Ouvidoria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI'; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: #333; line-height: 1.8; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .header { background: white; border-radius: 15px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); border-top: 5px solid #43e97b; }
+        .header h1 { font-size: 2.5em; color: #43e97b; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; color: #666; margin-bottom: 20px; }
+        .header .meta { display: flex; gap: 30px; font-size: 1em; color: #888; flex-wrap: wrap; }
+        .content { background: white; border-radius: 15px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .content h2 { font-size: 1.8em; color: #43e97b; margin-top: 40px; margin-bottom: 20px; border-bottom: 3px solid #43e97b; padding-bottom: 10px; }
+        .content h2:first-of-type { margin-top: 0; }
+        .content h3 { font-size: 1.3em; color: #38f9d7; margin-top: 30px; margin-bottom: 15px; }
+        .content p { margin-bottom: 15px; color: #555; }
+        .content ul { list-style: none; margin-bottom: 20px; padding-left: 20px; }
+        .content li { padding: 8px 0; border-bottom: 1px solid #eee; }
+        .box { background: #e0fffb; border-left: 4px solid #43e97b; padding: 20px; margin: 20px 0; border-radius: 5px; }
+        .nav-buttons { display: flex; gap: 15px; justify-content: space-between; margin-top: 40px; flex-wrap: wrap; }
+        .btn { padding: 12px 30px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .btn-primary { background: linear-gradient(135deg, #43e97b, #38f9d7); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(67, 233, 123, 0.4); }
+        .btn-secondary { background: white; color: #43e97b; border: 2px solid #43e97b; }
+        .btn-secondary:hover { background: #e0fffb; }
+        .print-btn { padding: 8px 15px; font-size: 0.9em; background: #f5f5f5; color: #666; border: 1px solid #ddd; }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding: 15px 0; font-size: 0.95em; color: #999; margin-bottom: 20px; }
+        .breadcrumb a { color: #43e97b; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+
+        /* WHY SECTION */
+        .why-box { background: linear-gradient(135deg, rgba(67, 233, 123, 0.05), rgba(56, 249, 215, 0.05)); border-left: 4px solid #43e97b; padding: 25px; margin-bottom: 30px; border-radius: 8px; }
+        .why-box h3 { color: #43e97b; font-size: 1.2em; margin-bottom: 12px; }
+        .why-box p { color: #555; font-size: 1.05em; line-height: 1.7; }
+
+        /* QUICK ACCESS */
+        .quick-access { background: #f9f9f9; border: 2px dashed #ddd; padding: 20px; border-radius: 10px; margin: 30px 0; text-align: center; }
+        .quick-access a { display: inline-block; background: linear-gradient(135deg, #43e97b, #38f9d7); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; }
+        .quick-access a:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(67, 233, 123, 0.3); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="landing-page.html">🏠 Home</a> / <a href="landing-page.html#pilares">📚 Pilares</a> / <strong>💪 Narrativa & Confiança</strong>
+        </div>
+
+        <div class="header">
+            <h1>💪 PILAR 4: Narrativa + Confiança</h1>
+            <p class="subtitle">Estruture seu pitch, antecipe objeções, chegue confiante ao teste</p>
+
+            <div class="why-box" style="margin-top: 25px; margin-bottom: 0;">
+                <h3>💡 Por que isso importa?</h3>
+                <p>Confiança é o produto final. Se você conseguir se VER no papel, o entrevistador consegue também. Seu pitch memorizado + antecipação de objeções = você entra segura no teste.</p>
+            </div>
+            <div class="meta">
+                <div class="meta-item">⏱️ <strong>4 horas</strong> prep final</div>
+                <div class="meta-item">🎤 <strong>Pitch pronto</strong></div>
+                <div class="meta-item"><button class="btn print-btn" onclick="window.print()">🖨️ Imprimir/PDF</button></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>1. Seu Pitch (60 segundos — MEMORIZE)</h2>
+
+            <div class="box">
+                <strong>"Sou profissional sênior em RH com 10+ anos em seleção, treinamento e gestão de pessoas. Meu diferencial: escuta ativa e resolução de conflitos estruturada.</strong><br><br>
+                <strong>Agora quero trazer essa mesma integridade pra ouvidoria do Postalis. Porque ouvidoria não é 'reclamação' — é ética institucional em ação. É garantir que cliente confie que sua voz foi ouvida, seu direito foi respeitado, seu problema foi resolvido com transparência.</strong><br><br>
+                <strong>Passei 48 horas estudando LGPD, CDC, direitos previdenciários e contexto Postalis. Estou pronta."</strong>
+            </div>
+
+            <h2>2. Antecipe 3 Objeções (Respostas Prontas)</h2>
+
+            <h3>Objeção 1: "Você nunca fez ouvidoria. Vai aprender na marra?"</h3>
+            <p><strong>Sua Resposta:</strong> "Não. Mas ouvidoria é 60% competência comportamental (escuta, empatia, integridade) — que tenho. E 40% conhecimento técnico (legislação, políticas) — que estudo em 48h."</p>
+
+            <h3>Objeção 2: "O mercado de ouvidoria é específico. Você não tem experiência."</h3>
+            <p><strong>Sua Resposta:</strong> "Verdade. Mas meu track record em RH prova que consigo aprender rápido, estruturar processos e ganhar confiança de pessoas. Isso é transferível. Além disso, Postalis vai me treinar internamente."</p>
+
+            <h3>Objeção 3: "Por que sair de RH? Ouvidoria paga menos..."</h3>
+            <p><strong>Sua Resposta:</strong> "Não é sobre dinheiro — é sobre propósito. Em RH, ajudava colaboradores. Agora quero ajudar cliente final. É um upgrade de impacto. Além disso, ouvidoria senior em fundo previdenciário é posição estratégica — valorizada, influente."</p>
+
+            <h2>3. Confiança é TUDO</h2>
+
+            <h3>3 Razões Científicas por Você Vai Passar:</h3>
+            <ul>
+                <li><strong>1. Track record:</strong> 10 anos em RH processando conflito, documentando, mantendo integridade — você fez isso diariamente</li>
+                <li><strong>2. Disciplina:</strong> Você passei 48h estudando legislação — isso prova que consegue aprender rápido</li>
+                <li><strong>3. Propósito:</strong> Isso não é 'fazer nome' — é garantir que cliente confie — você fica obcecada com isso</li>
+            </ul>
+
+            <div class="box">
+                <strong>Mantra Pré-Teste:</strong><br><br>
+                "Eu sou sênior em RH com 10+ anos.<br>
+                Tenho as competências comportamentais.<br>
+                Estudei legislação em 48h.<br>
+                Domino os 5 casos.<br>
+                Meu pitch é sólido.<br>
+                <strong>Eu consigo isso."</strong>
+            </div>
+
+            <h2>4. Checklist Pré-Teste (26/03)</h2>
+
+            <h3>Noite Anterior (25/03):</h3>
+            <ul>
+                <li>✅ Dormir 8h (CRÍTICO)</li>
+                <li>✅ Releitura rápida de flashcards (30 min)</li>
+                <li>✅ Revisão do pitch (15 min)</li>
+                <li>✅ Preparar roupa profissional</li>
+            </ul>
+
+            <h3>Manhã do Teste (26/03):</h3>
+            <ul>
+                <li>✅ Acordar cedo (6h)</li>
+                <li>✅ Café + hidratação</li>
+                <li>✅ Duche + roupa que te faz sentir poderosa</li>
+                <li>✅ 5 respirações profundas (confiança)</li>
+                <li>✅ Sair de casa com tempo</li>
+            </ul>
+
+            <h3>Na Porta do Teste:</h3>
+            <ul>
+                <li>✅ Respirar fundo (você sabe ouvidoria)</li>
+                <li>✅ Lembrar: você foi selecionada curriculum</li>
+                <li>✅ Lembrar: você estudou 48h</li>
+                <li>✅ Lembrar: você domina os 5 casos</li>
+                <li>✅ Sorriso. Energia alta. Entra lá.</li>
+            </ul>
+
+            <h2>5. Mensagem Final de Confiança</h2>
+
+            <div class="box">
+                <strong>Luciana,</strong><br><br>
+                Você é sênior em RH com 10+ anos. Ouvidoria é basicamente RH para cliente externo.<br><br>
+                Seus superpoderes (escuta ativa, empatia + firmeza, documentação estruturada) são 100% seus.<br><br>
+                Você foi selecionada curriculum — você é competente.<br><br>
+                Você estudou 48h — você tem disciplina.<br><br>
+                Você sabe ouvidoria agora — você aprendeu.<br><br>
+                <strong>Agora falta só confiança.</strong><br><br>
+                <strong>Você consegue. Confiamos em você. 🍀✨</strong>
+            </div>
+        </div>
+
+        <div class="quick-access">
+            <p style="margin-bottom: 15px; color: #666; font-weight: 500;">🎬 <strong>Pronto? Hora de treinar!</strong></p>
+            <a href="simulado-inicio.html">Começar Simulado Prático</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="landing-page.html" class="btn btn-secondary">← Voltar à Home</a>
+            <a href="simulado-inicio.html" class="btn btn-primary">Pronto! Começar Teste →</a>
+        </div>
+    </div>
+</body>
+</html>

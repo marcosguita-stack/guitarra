@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilar 1: Legislação | Curso Ouvidoria Postalis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border-top: 5px solid #667eea;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .header .meta {
+            display: flex;
+            gap: 30px;
+            font-size: 1em;
+            color: #888;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            line-height: 1.9;
+        }
+
+        .content h2 {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 1.3em;
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .content ul {
+            list-style: none;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .content li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+
+        .content li:last-child {
+            border-bottom: none;
+        }
+
+        .box {
+            background: #f5f0ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .box strong {
+            color: #667eea;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: space-between;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #f0f0ff;
+        }
+
+        .print-btn {
+            padding: 8px 15px;
+            font-size: 0.9em;
+            background: #f5f5f5;
+            color: #666;
+            border: 1px solid #ddd;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            padding: 15px 0;
+            font-size: 0.95em;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* WHY SECTION */
+        .why-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .why-box h3 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin-bottom: 12px;
+        }
+
+        .why-box p {
+            color: #555;
+            font-size: 1.05em;
+            line-height: 1.7;
+        }
+
+        /* QUICK ACCESS */
+        .quick-access {
+            background: #f9f9f9;
+            border: 2px dashed #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .quick-access a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .quick-access a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .print-btn:hover {
+            background: #ebebeb;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .nav-buttons, .print-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="landing-page.html">🏠 Home</a> / <a href="landing-page.html#pilares">📚 Pilares</a> / <strong>⚖️ Legislação</strong>
+        </div>
+
+        <div class="header">
+            <h1>⚖️ PILAR 1: Legislação Mínima Defensiva</h1>
+            <p class="subtitle">A base legal que protege todo atendimento em ouvidoria</p>
+
+            <div class="why-box" style="margin-top: 25px; margin-bottom: 0;">
+                <h3>💡 Por que isso importa?</h3>
+                <p>40% das objeções do cliente vêm de direitos que ele acredita ter. Você precisa SABER a lei para responder com autoridade. LGPD, CDC e direitos previdenciários são seus escudos — eles te dão poder para dizer "não" sem parecer injusta.</p>
+            </div>
+            <div class="meta">
+                <div class="meta-item">⏱️ <strong>8 horas</strong> de estudo</div>
+                <div class="meta-item">📚 <strong>4 tópicos</strong> principais</div>
+                <div class="meta-item">✅ <strong>Crítico</strong> para o teste</div>
+                <div class="meta-item">
+                    <button class="btn print-btn" onclick="window.print()">🖨️ Imprimir/PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>1. LGPD — Lei Geral de Proteção de Dados (Lei 13.709/2018)</h2>
+
+            <h3>Por que importa para Ouvidoria?</h3>
+            <p>A ouvidoria recebe dados sensíveis dos clientes. Você precisa saber protegê-los legalmente.</p>
+
+            <h3>5 Princípios LGPD (MEMORIZE: TFNSP)</h3>
+            <ul>
+                <li><strong>T — TRANSPARÊNCIA:</strong> Cliente sabe como seus dados são usados</li>
+                <li><strong>F — FINALIDADE:</strong> Dados coletados APENAS pro propósito declarado</li>
+                <li><strong>N — NECESSIDADE:</strong> Coleta mínima, não excesso</li>
+                <li><strong>S — SEGURANÇA:</strong> Proteja dados contra vazamento</li>
+                <li><strong>P — PRESTAÇÃO DE CONTAS:</strong> Documente tudo</li>
+            </ul>
+
+            <h3>Direitos do Cliente (CRÍTICO)</h3>
+            <ul>
+                <li>✅ <strong>Acessar</strong> seus dados ("quais dados vocês têm sobre mim?")</li>
+                <li>✅ <strong>Corrigir</strong> dados errados</li>
+                <li>✅ <strong>Deletar</strong> ("direito ao esquecimento" — com exceções legais)</li>
+                <li>✅ <strong>Portabilidade</strong> (levar dados pra outro lugar)</li>
+                <li>✅ <strong>Saber</strong> se há tratamento automatizado</li>
+            </ul>
+
+            <h3>Seu Papel em Ouvidoria</h3>
+            <div class="box">
+                <strong>Cliente reclama:</strong> "Vocês têm meus dados?" ou "Quero deletar meus dados"<br><br>
+                <strong>Sua ação:</strong><br>
+                1. Acolha (valide preocupação)<br>
+                2. Escalope para DPO (Data Protection Officer)<br>
+                3. Documente reclamação + data<br>
+                4. Responda em ATÉ 15 DIAS (prazo LGPD, não 30)
+            </div>
+
+            ---
+
+            <h2>2. CDC — Código de Defesa do Consumidor (Lei 8.078/1990)</h2>
+
+            <h3>Por que importa?</h3>
+            <p>Clientes da Postalis = consumidores. Seus direitos estão aqui.</p>
+
+            <h3>7 Direitos Básicos do Consumidor (MEMORIZE)</h3>
+            <table class="table-responsive">
+                <thead>
+                    <tr>
+                        <th>Direito</th>
+                        <th>Significado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Proteção da Vida</strong></td>
+                        <td>Serviço não pode prejudicar saúde</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Educação & Informação</strong></td>
+                        <td>Transparência clara</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Contra Publicidade Enganosa</strong></td>
+                        <td>Sem mentiras</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Proteção Contratual</strong></td>
+                        <td>Cláusulas abusivas são nulas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Indenização por Dano</strong></td>
+                        <td>Se foi prejudicado, tem direito</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6. Acesso à Justiça</strong></td>
+                        <td>Pode reclamar, processar, etc.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7. Facilitação de Defesa</strong></td>
+                        <td>Você ajuda cliente a se defender</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cláusulas Abusivas (NULAS)</h3>
+            <ul>
+                <li>❌ Cobrar taxa absurda por reclamação</li>
+                <li>❌ Proibir cliente de reclamar</li>
+                <li>❌ Transferir risco pro cliente injustamente</li>
+                <li>❌ Limitar direitos do consumidor unilateralmente</li>
+            </ul>
+
+            <div class="box">
+                <strong>⚠️ Exemplo:</strong> Cliente reclama que foi cobrada "taxa de reclamação" de R$ 500?<br>
+                → É cláusula abusiva! Devolva o dinheiro + juros.
+            </div>
+
+            ---
+
+            <h2>3. Direitos Previdenciários — LGPS vs RGPS</h2>
+
+            <h3>A Diferença (CRÍTICO)</h3>
+            <table class="table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>RGPS (INSS)</th>
+                        <th>LGPS (Postalis)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Tipo</strong></td>
+                        <td>Público, obrigatório</td>
+                        <td>Privado, voluntário</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Objetivo</strong></td>
+                        <td>Aposentadoria básica</td>
+                        <td>Complementa INSS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Benefício Mínimo</strong></td>
+                        <td>Salário mínimo</td>
+                        <td>Conforme contribuição</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Direitos Básicos do Contribuinte Postalis</h3>
+            <ul>
+                <li>✅ <strong>Consultar saldo:</strong> Ver quanto tem acumulado (imediato ou até 10 dias)</li>
+                <li>✅ <strong>Resgate:</strong> Sacar todo dinheiro (sob certas condições)</li>
+                <li>✅ <strong>Portabilidade:</strong> Transferir pra outro fundo (30 dias)</li>
+                <li>✅ <strong>Benefício:</strong> Receber aposentadoria complementar</li>
+                <li>✅ <strong>Reclamação:</strong> Questionar valores (até 60 dias = prazo prescritivo)</li>
+            </ul>
+
+            <h3>Quando NÃO pode resgatetudo:</h3>
+            <ul>
+                <li>❌ Se já está recebendo benefício (em "gozo")</li>
+                <li>❌ Se há ordem judicial de bloqueio</li>
+                <li>❌ Se tem dívida com INSS</li>
+            </ul>
+
+            ---
+
+            <h2>4. Ética e Integridade</h2>
+
+            <h3>Os 3 Pilares de Ética em Ouvidoria</h3>
+
+            <h3>1. Confidencialidade</h3>
+            <p>Nunca exponha dados do cliente. Nem pra outros departamentos sem autorização, nem pra mídia, polícia, ninguém.</p>
+
+            <h3>2. Imparcialidade</h3>
+            <p>Não deixe sentimentos pessoais influenciar. Ouça AMBAS as partes (cliente + área interna). Decida pelo direito, não pela simpatia.</p>
+
+            <h3>3. Sigilo</h3>
+            <p>Denúncias de fraude/corrupção = investigadas internamente, confidencialmente. Proteção de denunciante = obrigatório.</p>
+
+            <div class="box">
+                <strong>Seu Mantra:</strong><br>
+                "Meu trabalho é garantir que o cliente ACREDITE que foi ouvido com integridade, mesmo que sua reclamação não seja totalmente acolhida. A confiança é o produto."
+            </div>
+        </div>
+
+        <div class="quick-access">
+            <p style="margin-bottom: 15px; color: #666; font-weight: 500;">🎬 <strong>Pronto para treinar?</strong></p>
+            <a href="simulado-inicio.html">Começar Simulado Prático</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="landing-page.html" class="btn btn-secondary">← Voltar à Home</a>
+            <a href="pilar-2.html" class="btn btn-primary">Próximo: Pilar 2 →</a>
+        </div>
+    </div>
+</body>
+</html>

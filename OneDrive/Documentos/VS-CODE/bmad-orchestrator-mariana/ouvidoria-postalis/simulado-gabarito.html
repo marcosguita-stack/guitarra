@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabarito & Resultados | Simulado Ouvidoria</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #333; line-height: 1.8; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { background: white; border-radius: 15px; padding: 40px; margin-bottom: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); border-top: 5px solid #4facfe; text-align: center; }
+        .header h1 { font-size: 2.8em; color: #4facfe; margin-bottom: 10px; }
+        .score-box { font-size: 3.2em; font-weight: bold; margin: 30px 0; padding: 30px; border-radius: 15px; }
+        .score-aprovada { background: #d4edda; color: #155724; }
+        .score-bom { background: #cce5ff; color: #004085; }
+        .score-medio { background: #fff3cd; color: #856404; }
+        .score-critico { background: #f8d7da; color: #721c24; }
+        .verdict { font-size: 1.8em; font-weight: 700; margin: 20px 0; }
+        .subtitle { font-size: 1.1em; color: #666; margin-top: 10px; }
+        .timestamp { color: #999; font-size: 0.9em; margin-top: 15px; }
+        .case-comparison { background: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+        .case-header { display: flex; gap: 20px; align-items: center; margin-bottom: 25px; }
+        .case-number { display: inline-block; background: #4facfe; color: white; padding: 10px 18px; border-radius: 50px; font-weight: bold; font-size: 0.9em; min-width: 70px; text-align: center; }
+        .case-title { font-size: 1.6em; color: #4facfe; }
+        .case-score { font-weight: bold; font-size: 1.2em; }
+        .case-score.full { color: #28a745; }
+        .case-score.partial { color: #ff9800; }
+        .case-score.low { color: #dc3545; }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .answer-box { padding: 20px; border-radius: 10px; border-left: 4px solid; }
+        .answer-box h4 { margin-bottom: 12px; font-size: 1.1em; }
+        .answer-box p { font-size: 0.95em; line-height: 1.7; white-space: pre-wrap; word-wrap: break-word; }
+        .user-answer { background: #e8f4f8; border-left-color: #4facfe; }
+        .user-answer h4 { color: #4facfe; }
+        .correct-answer { background: #f0f9ff; border-left-color: #28a745; }
+        .correct-answer h4 { color: #28a745; }
+        .feedback { background: #fff9e6; border-left: 4px solid #ff9800; padding: 15px; margin-top: 15px; border-radius: 5px; color: #856404; font-size: 0.95em; }
+        .feedback strong { color: #ff9800; }
+        .buttons { display: flex; gap: 15px; justify-content: center; margin-top: 50px; flex-wrap: wrap; }
+        .btn { padding: 15px 40px; border: none; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1.1em; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .btn-again { background: linear-gradient(135deg, #4facfe, #00f2fe); color: white; }
+        .btn-again:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(79, 172, 254, 0.4); }
+        .btn-home { background: white; color: #4facfe; border: 2px solid #4facfe; }
+        .btn-home:hover { background: #e0f7ff; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 30px 0; }
+        .stat-item { background: #f5f5f5; padding: 15px; border-radius: 10px; text-align: center; }
+        .stat-item .number { font-size: 1.8em; font-weight: bold; color: #4facfe; }
+        .stat-item .label { color: #666; font-size: 0.9em; margin-top: 5px; }
+        @media (max-width: 768px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+            .case-header { flex-direction: column; align-items: flex-start; }
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb { padding: 15px 0; font-size: 0.95em; color: #999; margin-bottom: 20px; }
+        .breadcrumb a { color: #4facfe; text-decoration: none; font-weight: 600; }
+        .breadcrumb a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="landing-page.html">🏠 Home</a> / <a href="simulado-inicio.html">🎬 Simulado</a> / <strong>Resultados</strong>
+        </div>
+
+        <div class="header">
+            <h1>📊 Seus Resultados</h1>
+
+            <div id="scoreDisplay" class="score-box score-bom">
+                <!-- Pontuação será preenchida por JavaScript -->
+            </div>
+
+            <div id="verdictDisplay" class="verdict">
+                <!-- Resultado será preenchido por JavaScript -->
+            </div>
+
+            <p class="subtitle" id="resultadoTexto"></p>
+            <p class="timestamp" id="dataTesteSim"></p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="number" id="totalPontos">0</div>
+                <div class="label">Pontos</div>
+            </div>
+            <div class="stat-item">
+                <div class="number" id="casosCorretos">0</div>
+                <div class="label">Respostas Boas</div>
+            </div>
+            <div class="stat-item">
+                <div class="number" id="precisao">0%</div>
+                <div class="label">Precisão</div>
+            </div>
+            <div class="stat-item">
+                <div class="number" id="statusAprovacao">—</div>
+                <div class="label">Status</div>
+            </div>
+        </div>
+
+        <div id="casesContainer">
+            <!-- Casos serão preenchidos por JavaScript -->
+        </div>
+
+        <div class="buttons">
+            <a href="simulado-teste.html" class="btn btn-again">🔄 Fazer Teste Novamente</a>
+            <a href="landing-page.html" class="btn btn-home">← Voltar à Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Gabaritos corretos
+        const gabaritos = {
+            caso1: {
+                titulo: "💰 Meu Saldo Desapareceu!",
+                respostaIdeal: "1. ACOLHIMENTO: Valide a preocupação: 'Entendo que o saldo estar menor causa preocupação. Vou investigar imediatamente.'\n\n2. INVESTIGAÇÃO: Solicite o extrato detalhado, verifique o período jan-mar, identifique a causa.\n\n3. EXPLICAÇÃO: Explique com transparência: 'A rentabilidade do fundo em janeiro foi negativa (-3%) por causa da queda do mercado. Seu saldo de R$ 150 mil foi aplicado a essa taxa. Resultado: R$ 145 mil. Isso é conforme a Política de Investimentos que você assinou.'\n\n4. RESOLUÇÃO: Mostre os cálculos, ofereça extrato detalhado, responda em até 15 dias.\n\n5. LEGISLAÇÃO: Cite CDC (direito à informação clara) e legislação previdenciária.",
+                dicas: "Estruture bem: acolha → investigue → explique com dados → resolva. Não deixe dúvida. Sempre cite legislação."
+            },
+            caso2: {
+                titulo: "🔐 Vocês Violaram Minha Privacidade!",
+                respostaIdeal: "1. ACOLHIMENTO IMEDIATO: 'Você está certo. Emails de marketing sem seu consentimento violam a LGPD. Peço desculpas.'\n\n2. RECONHECIMENTO: 'Foi falha nossa. Marketing deveria ter verificado seu opt-out.'\n\n3. AÇÕES IMEDIATAS:\n   - Escalone para DPO (Data Protection Officer) hoje\n   - Remova IMEDIATAMENTE da lista de marketing\n   - Documente a reclamação\n\n4. PRAZO LGPD: 'Você receberá resposta em até 15 dias' (NÃO 30 dias - LGPD é mais rigorosa)\n\n5. LEGISLAÇÃO: Cite LGPD (Art. 7º - consentimento), Lei 13.711 (direito de acesso/exclusão).",
+                dicas: "LGPD é prioritária em casos de privacidade. Responda em 15 dias, não 30. Escalone para DPO sempre."
+            },
+            caso3: {
+                titulo: "⛔ Quero Resgatar e Vocês Não Deixam",
+                respostaIdeal: "1. ACOLHIMENTO: 'Entendo que mudou de ideia. Vou explicar as opções legais.'\n\n2. EXPLICAÇÃO LEGAL: 'Você escolheu BENEFÍCIO (aposentadoria complementar). Essa escolha é IRREVERSÍVEL conforme Lei 9.717/1998 (Regulação LGPS). Uma vez iniciado o benefício, não pode fazer resgate integral.'\n\n3. ALTERNATIVA: 'MAS você tem opção: EMPRÉSTIMO CONSIGNADO. Pode pedir empréstimo com desconto em folha, receber dinheiro agora, pagar parcelado.'\n\n4. ENCAMINHAMENTO: 'Vou conectá-lo com Crédito para simular empréstimo consignado. Resposta em 10 dias.'\n\n5. DOCUMENTAÇÃO: Envie cópia da Lei, simulação de consignado, termo de opção.",
+                dicas: "Seja empática MAS firme com a lei. Sempre ofereça alternativa (consignado). Nunca invente solução que não existe."
+            },
+            caso4: {
+                titulo: "🚨 Denúncia Anônima de Fraude",
+                respostaIdeal: "1. RECEPÇÃO: 'Sua denúncia foi recebida e será investigada com confidencialidade total.'\n\n2. ACOLHIMENTO: Não questione a autoria. Denúncia anônima é direito (Lei de Proteção ao Denunciante).\n\n3. ESCALAÇÃO IMEDIATA:\n   - Compliance (investigação preliminar)\n   - Auditoria Interna (investigação técnica)\n   - NÃO comunique ao suspeito ainda\n\n4. SIGILO: 'Sua identidade será protegida. Não revelaremos para ninguém até investigação.'\n\n5. CRONOGRAMA: 'Investigação levará 30-60 dias. Você será atualizado sem expor identidade.'\n\n6. DOCUMENTAÇÃO: Crie protocolo anônimo, mantenha sigilo absoluto.",
+                dicas: "Anônimo é protegido por lei. Escalone para Compliance + Auditoria. NUNCA revele ao denunciado antes da investigação."
+            },
+            caso5: {
+                titulo: "⏳ Vocês Demoraram 3 Meses",
+                respostaIdeal: "1. RECONHECIMENTO SEM NEGAÇÃO: 'Você tem toda razão. O SLA é 30 dias. Respondemos em 90. Falhamos.'\n\n2. DESCULPAS GENUÍNAS: 'Peço desculpas sinceras. Isso prejudicou você e não deveria ter acontecido.'\n\n3. CAUSA RAIZ: 'Houve gargalo no processo de triagem (era manual). Já implementamos solução (triagem automatizada).'\n\n4. COMPENSAÇÃO PROPORCIONAL:\n   - Opção 1: Abatimento de taxa (1 mês sem taxa de administração)\n   - Opção 2: Crédito de 0,5% sobre o saldo\n   - Opção 3: Combo das duas\n   Escolha a mais justa para o cliente.\n\n5. MELHORIA: 'Agora respondemos em máximo 15 dias (melhor que 30). Sistema automatizado garante isso.'\n\n6. LEGISLAÇÃO: CDC (direito à reparação por dano) + Código Processual Civil (responsabilidade civil).",
+                dicas: "Reconheça sem negação. Ofereça compensação REAL (não simbólica). Prove que melhorou. Sempre cite legislação."
+            }
+        };
+
+        // Recuperar dados do localStorage
+        function carregarDados() {
+            const dados = localStorage.getItem('respostasTesteSim');
+            const data = localStorage.getItem('dataTesteSim');
+
+            if (!dados) {
+                document.body.innerHTML = '<div style="padding: 100px 20px; text-align: center;"><h2>Nenhum teste encontrado. <a href="simulado-teste.html">Fazer teste</a></h2></div>';
+                return null;
+            }
+
+            return {
+                respostas: JSON.parse(dados),
+                data: data
+            };
+        }
+
+        // Calcular score de cada resposta
+        function calcularScore(resposta, gabarito) {
+            if (!resposta || resposta.trim().length === 0) return 0;
+
+            // Critérios básicos de avaliação
+            const criterios = {
+                temAcolhimento: resposta.toLowerCase().includes('acolh') || resposta.toLowerCase().includes('entend'),
+                temInvestigacao: resposta.toLowerCase().includes('investig') || resposta.toLowerCase().includes('verif'),
+                temExplicacao: resposta.toLowerCase().includes('explica') || resposta.toLowerCase().includes('motiv'),
+                temResolucao: resposta.toLowerCase().includes('respons') || resposta.toLowerCase().includes('prazo') || resposta.toLowerCase().includes('dia'),
+                temLegislacao: resposta.toLowerCase().includes('lgpd') || resposta.toLowerCase().includes('cdc') || resposta.toLowerCase().includes('lei') || resposta.toLowerCase().includes('art'),
+                temEstrutura: resposta.split('\n').length > 3 // Resposta estruturada em linhas
+            };
+
+            let pontos = 0;
+            if (criterios.temAcolhimento) pontos += 15;
+            if (criterios.temInvestigacao) pontos += 15;
+            if (criterios.temExplicacao) pontos += 15;
+            if (criterios.temResolucao) pontos += 15;
+            if (criterios.temLegislacao) pontos += 15;
+            if (criterios.temEstrutura) pontos += 10;
+
+            return Math.min(pontos, 100);
+        }
+
+        // Gerar feedback personalizado
+        function gerarFeedback(score, gabarito) {
+            if (score >= 90) {
+                return "🟢 Excelente resposta! Você cobriu todos os pontos críticos: acolhimento, investigação, legislação e resolução.";
+            } else if (score >= 75) {
+                return "🟡 Boa resposta! Faltou detalhar um pouco mais em legislação ou estrutura. Veja o gabarito completo.";
+            } else if (score >= 60) {
+                return "🟠 Resposta ok, mas precisa melhorar. Estruture melhor: acolha → investigue → explique → resolva → cite lei.";
+            } else {
+                return "🔴 Resposta incompleta. Compare com o gabarito e note os pontos faltantes.";
+            }
+        }
+
+        // Exibir resultados
+        function exibirResultados() {
+            const dados = carregarDados();
+            if (!dados) return;
+
+            const { respostas, data } = dados;
+
+            // Calcular scores
+            const scores = {
+                caso1: calcularScore(respostas.caso1, gabaritos.caso1),
+                caso2: calcularScore(respostas.caso2, gabaritos.caso2),
+                caso3: calcularScore(respostas.caso3, gabaritos.caso3),
+                caso4: calcularScore(respostas.caso4, gabaritos.caso4),
+                caso5: calcularScore(respostas.caso5, gabaritos.caso5)
+            };
+
+            const totalPontos = Math.round((scores.caso1 + scores.caso2 + scores.caso3 + scores.caso4 + scores.caso5) / 5);
+            const casosCorretos = Object.values(scores).filter(s => s >= 75).length;
+            const precisao = Math.round((totalPontos / 100) * 100);
+
+            // Determinar resultado
+            let resultado, classe, status;
+            if (totalPontos >= 90) {
+                resultado = `${totalPontos}/100 — APROVADA! 🎉`;
+                classe = 'score-aprovada';
+                status = 'APROVADA';
+            } else if (totalPontos >= 75) {
+                resultado = `${totalPontos}/100 — BOM ✅`;
+                classe = 'score-bom';
+                status = 'BOM';
+            } else if (totalPontos >= 60) {
+                resultado = `${totalPontos}/100 — MÉDIO ⚠️`;
+                classe = 'score-medio';
+                status = 'MÉDIO';
+            } else {
+                resultado = `${totalPontos}/100 — CRÍTICO 🔴`;
+                classe = 'score-critico';
+                status = 'CRÍTICO';
+            }
+
+            // Preencher resultado
+            document.getElementById('scoreDisplay').textContent = resultado;
+            document.getElementById('scoreDisplay').className = 'score-box ' + classe;
+            document.getElementById('verdictDisplay').textContent = status;
+            document.getElementById('resultadoTexto').textContent = `Você acertou ${casosCorretos} de 5 casos com boa estrutura.`;
+            document.getElementById('dataTesteSim').textContent = `Teste realizado em: ${data}`;
+
+            // Estatísticas
+            document.getElementById('totalPontos').textContent = totalPontos;
+            document.getElementById('casosCorretos').textContent = casosCorretos;
+            document.getElementById('precisao').textContent = precisao + '%';
+            document.getElementById('statusAprovacao').textContent = status;
+
+            // Exibir comparação de cada caso
+            const container = document.getElementById('casesContainer');
+            container.innerHTML = '';
+
+            ['caso1', 'caso2', 'caso3', 'caso4', 'caso5'].forEach((caso, index) => {
+                const score = scores[caso];
+                const gabarito = gabaritos[caso];
+                const feedback = gerarFeedback(score, gabarito);
+                const scoreClass = score >= 75 ? 'full' : score >= 60 ? 'partial' : 'low';
+
+                const html = `
+                    <div class="case-comparison">
+                        <div class="case-header">
+                            <span class="case-number">${index + 1}/5</span>
+                            <h3 class="case-title">${gabarito.titulo}</h3>
+                            <span class="case-score ${scoreClass}">${score}/100 pontos</span>
+                        </div>
+
+                        <div class="comparison-grid">
+                            <div class="answer-box user-answer">
+                                <h4>📝 Sua Resposta</h4>
+                                <p>${respostas[caso] || '(sem resposta)'}</p>
+                            </div>
+                            <div class="answer-box correct-answer">
+                                <h4>✅ Gabarito Comentado</h4>
+                                <p>${gabarito.respostaIdeal}</p>
+                            </div>
+                        </div>
+
+                        <div class="feedback">
+                            <strong>Feedback:</strong> ${feedback} ${gabarito.dicas ? `<br><strong>💡 Dica para melhorar:</strong> ${gabarito.dicas}` : ''}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+
+            // Limpar localStorage (opcional - manter para análise)
+            // localStorage.removeItem('respostasTesteSim');
+            // localStorage.removeItem('dataTesteSim');
+        }
+
+        // Inicializar
+        exibirResultados();
+    </script>
+</body>
+</html>
